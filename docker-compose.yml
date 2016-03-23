@@ -1,0 +1,10 @@
+version: '2'
+services:
+  clicc_db:
+    restart: always
+    ports:
+    - "5432:5432"
+    image: ericdfournier/clicc_db:latest
+    environment:
+      POSTGRES_USER: clicc
+      POSTGRES_PASSWORD: clicc
