@@ -74,7 +74,7 @@ docker-machine create -d virtualbox clicc
 2. Point docker daemon to virtual machine
 
 ```
-eval $(docker-machine env clicc)
+docker-machine env clicc; eval $(docker-machine env clicc)
 ```
 
 3. Run docker compose to orchestrate container build
@@ -92,9 +92,9 @@ docker ps
 This command should show you some output like the following:
 
 ```
-CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                    NAMES
-08112f0c838d        ipython/scipyserver:latest   "/notebook.sh"           21 hours ago        Up 11 seconds       0.0.0.0:443->8888/tcp    cliccdb_model_1
-fe98ba708c99        46fea934c9c2                 "/docker-entrypoint.s"   24 hours ago        Up 11 seconds       0.0.0.0:5432->5432/tcp   cliccdb_clicc_db_1
+CONTAINER ID        IMAGE                      COMMAND                  CREATED             STATUS                          PORTS                    NAMES
+80bcdb3e64cf        ericdfournier/dev:latest   "/bin/bash"              47 seconds ago      Restarting (0) 21 seconds ago   0.0.0.0:443->8888/tcp    clicc_dev_1
+81a7f9e2b5c6        ericdfournier/db:latest    "/docker-entrypoint.s"   5 minutes ago       Restarting (0) 2 minutes ago    0.0.0.0:5432->5432/tcp   clicc_db_1
 ```
 
 4. Open interactive database session within the clicc_db_1 container hosted database (user:clicc, password: clicc)
