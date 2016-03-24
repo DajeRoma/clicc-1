@@ -1,5 +1,8 @@
+# Containers 101
+
 ![alt text](https://github.com/ericdfournier/clicc/blob/master/src/common/images/vm-vs-docker.png "Containers vs. Virtual Machines")
 
+# The Docker Toolchain
 ![alt text](https://github.com/ericdfournier/clicc/blob/master/src/common/images/docker_datacenter_toolchain.jpg "Docker Datacenter Toolchain and Services")
 
 
