@@ -1,3 +1,7 @@
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Containers vs. Virtual Machines")
+
+
+
 Install docker command line tools: https://www.docker.com/products/docker-toolbox
 Install git command line tools: https://git-scm.com/download/mac
 Clone repo and cd into it on your local machine
