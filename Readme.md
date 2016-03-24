@@ -2,9 +2,9 @@
 
 Linux containers are not new. They have been around for a long time. However, nearly all of the tools that are currently available for creating, managing, discovering, and running linux containers are new. And it is the relatively recent availability of this support tooling that has made linux containers really take off in terms of cloud based application deployment. 
 
-![alt text](https://github.com/ericdfournier/clicc/blob/master/src/common/images/vm-vs-docker.png "Containers vs. Virtual Machines")
-
 Whether you know it or not, whether you like it or not, whether you care or not: you all part of a team that is building a complex, distributed web application. And, as such, you are going to have to learn more about how the modern web actually operates than the average Environmental Scientist in order to be successful with your work (even if you think that your personal role within the project has no outward facing components).
+
+![alt text](https://github.com/ericdfournier/clicc/blob/master/src/common/images/vm-vs-docker.png "Containers vs. Virtual Machines")
 
 # The Docker Approach
 
@@ -22,15 +22,13 @@ Docker provides an integrated set of tools and services which enable you to take
 
 # The Docker Ecosystem
 
-What has made Docker so successful thus far is its simplicity of use and the breadth and depth of its integrations. 
-
-![alt text](https://github.com/ericdfournier/clicc/blob/master/src/common/images/docker-ecosystem.jpg "Docker Ecosystem")
-
-Docker lets you build an application stack based on any programming language, any database, and any operating system (as long as its linux), wrap them up in a container, and push them to any cloud. This flexibility goes a long way towards allowing you to: 
+What has made Docker so successful thus far is its simplicity of use and the breadth and depth of its integrations. Docker lets you build an application stack based on any programming language, any database, and any operating system (as long as its linux), wrap them up in a container, and push them to any cloud. This flexibility goes a long way towards allowing you to: 
 
 - be efficient with your time: no need to learn some new language to develop your app because its the one of the select few hosted by your cloud provider of choice
 
 - be efficient with your money: choose the cloud provider that offers the set of services which is best suited to your needs for the least cost possible. If their terms or their prices change over time, no big deal, you can move your entire app to another cloud with trivial ease...
+
+![alt text](https://github.com/ericdfournier/clicc/blob/master/src/common/images/docker-ecosystem.jpg "Docker Ecosystem")
 
 # The Docker Orchestration Tools
 
@@ -91,7 +89,7 @@ eval $(docker-machine env clicc)
 docker-compose up -d
 ```
 
-4. Open interactive session within a docker container hosted database (password: clicc)
+4. Open interactive database session within a docker container hosted database (password: clicc)
 
 ```
 psql -U clicc -W -h $(docker-machine ip clicc)
