@@ -42,25 +42,19 @@ Docker Machine allows developers to work with the Docker Engine from a local lap
 
 ![alt text](https://github.com/ericdfournier/clicc/blob/master/src/common/images/docker-machine.png "Docker-Machine")
 
-## docker-compose
+## ````docker-compose````
 
 Docker Compose allows developers to define which set of Docker containers should comprise the multi-container distributed application. It allows you to dynamically change the application and add new services as needed.
 
 ![alt text](https://github.com/ericdfournier/clicc/blob/master/src/common/images/docker-compose.png "Docker-Compose")
 
-## docker-swarm
+## ````docker-swarm````
 
 Docker Swarm offers native clustering capabilities for large-scale applications. It's able to automatically optimize for workload and placement based on resource utilization. Using standard and custom constraints, it enables complex placement optimization, and upon host failure, it's able to automatically rebalance workloads to provide HA and fault tolerance.
 
 ![alt text](https://github.com/ericdfournier/clicc/blob/master/src/common/images/docker-swarm.png "Docker-Swarm")
 
-## docker-network
-
-Docker Network allows for multiple containers running simultaneously in support of application to be selectively access or remotely reconfigured in an automated way. This makes it possible to rapidly relocte your application or replicate it in the same datacenter or within another datacenter.
-
-![alt text](https://github.com/ericdfournier/clicc/blob/master/src/common/images/docker-network.png "Docker-Network")
-
-## docker-engine
+## ````docker````
 
 The Docker-Engine (or sometimes, Docker Daemon) controls the low level interface between the containers and their underlying hardware (the bare metal). This is the tool that allows you to collectively view and manage containers on a single host machine as well as interactively control containers (by attaching to them and running local shell commands from inside any given container).
 
@@ -89,8 +83,26 @@ eval $(docker-machine env clicc)
 docker-compose up -d
 ```
 
-4. Open interactive database session within a docker container hosted database (password: clicc)
+4. Check to see that the containers are active
+
+```
+docker ps
+```
+
+This command should show you some output like the following:
+
+```
+CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                    NAMES
+08112f0c838d        ipython/scipyserver:latest   "/notebook.sh"           21 hours ago        Up 11 seconds       0.0.0.0:443->8888/tcp    cliccdb_model_1
+fe98ba708c99        46fea934c9c2                 "/docker-entrypoint.s"   24 hours ago        Up 11 seconds       0.0.0.0:5432->5432/tcp   cliccdb_clicc_db_1
+```
+
+4. Open interactive database session within the clicc_db_1 container hosted database (user:clicc, password: clicc)
 
 ```
 psql -U clicc -W -h $(docker-machine ip clicc)
 ```
+
+5. Open interactive ipython notebook session hosted on the clicc_dev_1 container (password:clicc)
+
+Open your browser (preferrably google chrome) and type in: http://localhost
