@@ -63,7 +63,8 @@ The Docker-Engine (or sometimes, Docker Daemon) controls the low level interface
 Install docker command line tools: https://www.docker.com/products/docker-toolbox
 
 Install git command line tools: https://git-scm.com/download/mac
-Clone repo and cd into it on your local machine
+
+Clone this repo and cd into it on your local machine
 
 1. Create local virtual machine named clicc
 
@@ -71,13 +72,13 @@ Clone repo and cd into it on your local machine
 docker-machine create -d virtualbox clicc
 ```
 
-2. Point docker daemon to virtual machine
+2. Associated docker daemon with new virtual machine ip
 
 ```
 docker-machine env clicc; eval $(docker-machine env clicc)
 ```
 
-3. Run docker compose to orchestrate container build
+3. Run docker compose to orchestrate container builds
 
 ```
 docker-compose up -d
@@ -86,23 +87,40 @@ docker-compose up -d
 4. Check to see that the containers are active
 
 ```
-docker ps
+docker-compose ps
 ```
 
 This command should show you some output like the following:
 
 ```
-CONTAINER ID        IMAGE                      COMMAND                  CREATED             STATUS                          PORTS                    NAMES
-80bcdb3e64cf        ericdfournier/dev:latest   "/bin/bash"              47 seconds ago      Restarting (0) 21 seconds ago   0.0.0.0:443->8888/tcp    clicc_dev_1
-81a7f9e2b5c6        ericdfournier/db:latest    "/docker-entrypoint.s"   5 minutes ago       Restarting (0) 2 minutes ago    0.0.0.0:5432->5432/tcp   clicc_db_1
+   Name                 Command               State            Ports
+-----------------------------------------------------------------------------
+clicc_data   /bin/true                        Exit 0
+clicc_db     /docker-entrypoint.sh postgres   Up       0.0.0.0:5432->5432/tcp
+clicc_dev    /initdev.sh                      Up       0.0.0.0:443->8888/tcp
 ```
 
 4. Open interactive database session within the clicc_db_1 container hosted database (user:clicc, password: clicc)
 
 ```
-psql -U clicc -W -h $(docker-machine ip clicc)
+psql -h $(docker-machine ip clicc) -p 5432 -d clicc -U clicc
 ```
 
 5. Open interactive ipython notebook session hosted on the clicc_dev_1 container (password:clicc)
 
-Open your browser (preferrably google chrome) and type in: http://localhost
+```
+docker-machine ip clicc
+```
+
+This command should show you the ip address that was dynamically generated for the clicc VM as in the following:
+
+```
+192.168.99.100
+
+```
+
+6. Open your browser (preferrably chrome) and type the following url =>  https://[YOUR VM'S IP]
+
+Ignore any warnings that you may get from the browser about certificates and security. Our docker container running the ipython notebook server is not using a valid signed certificate. Those cost money that we don't have. Plus it is not something that we need for this development environment.
+
+Input the password for the ipython notebook server (clicc) and voila!

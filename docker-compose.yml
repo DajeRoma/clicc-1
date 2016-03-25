@@ -1,20 +1,31 @@
 version: '2'
 services:
-  dev:
-    image: ericdfournier/dev:latest
-    ports:
-      - "443:8888"
-    restart: always
-    environment: 
-      PASSWORD: clicc
-      USE_HTTPS: 'yes'
-    # volume: /some/host/folder/for/work:/home/jovyan/work
-    # volume: /some/host/folder/for/server.pem:/home/jovyan/.local/share/jupyter/notebook.pem
   db:
-    image: ericdfournier/db:latest
+    restart: always
+    build: db/.
+    container_name: clicc_db
+    volumes_from:
+      - data
     ports:
       - "5432:5432"
-    restart: always
     environment:
       POSTGRES_USER: clicc
       POSTGRES_PASSWORD: clicc
+  data:
+    image: ericdfournier/db:latest
+    container_name: clicc_data
+    volumes:
+      - /etc/postgresql
+      - /var/lib/postgresql
+    entrypoint: /bin/true
+  dev:
+    restart: always
+    build: dev/.
+    container_name: clicc_dev
+    ports:
+      - "443:8888"
+    environment: 
+      PASSWORD: clicc
+      USE_HTTPS: 'yes'
+    links: 
+      - db
