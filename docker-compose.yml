@@ -12,7 +12,7 @@ services:
       POSTGRES_USER: clicc
       POSTGRES_PASSWORD: clicc
   data:
-    image: ericdfournier/db:latest
+    image: clicc_db
     container_name: clicc_data
     volumes:
       - /etc/postgresql
