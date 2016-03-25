@@ -32,9 +32,7 @@ What has made Docker so successful thus far is its simplicity of use and the bre
 
 # The Docker Orchestration Tools
 
-Docker provides its own set of orchestration tools that are tightly integrated with the Docker-Hub - a public/private registry where you can store your repositories and acess those belonging to others - as well as with the various partner service described previously as being part of the Docker ecosystem.
-
-The docker orchestration toolset' four key components are each described separately below.
+Docker provides its own set of orchestration tools that are tightly integrated with the Docker-Hub - a public/private registry where you can store your repositories and acess those belonging to others - as well as with the various partner services described previously as being part of the Docker ecosystem. The docker orchestration toolset's four key components are each described separately below.
 
 ## ````docker-machine````
 
@@ -59,6 +57,12 @@ Docker Swarm offers native clustering capabilities for large-scale applications.
 The Docker-Engine (or sometimes, Docker Daemon) controls the low level interface between the containers and their underlying hardware (the bare metal). This is the tool that allows you to collectively view and manage containers on a single host machine as well as interactively control containers (by attaching to them and running local shell commands from inside any given container).
 
 # Working with the CLiCC Docker Containers
+
+This repository contains the build instructions for a customized set of docker containers that are designed to act as the CLiCC development environment. The automated build configuration generates a linked set of three containers housed in a single virtual machine living on the user's local host system. Two of the three containers are for data storage (a persistent data store container linked to an ephemeral postGIS database container). The third container is bridged to the other two interally within the VM and is accessibly over the internet as an iPython notebook server. This server provides Python 2.7 and 3.3 development environments with a number of key scientific computing packages pre-installed. This allows you to build up codebases as iPython notebooks within the browser, but saved onto the hosting container. This will very closely simulate the experience of working with a cloud hosted virtual machine. A conceptual diagram of this system architecture is desribed in the image below.
+
+![alt text](https://github.com/ericdfournier/clicc/blob/master/src/common/images/dev-architecture.png "Development-Architecture")
+
+## Building and running the CLiCC development environment
 
 Install docker command line tools: https://www.docker.com/products/docker-toolbox
 
