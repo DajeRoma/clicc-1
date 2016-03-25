@@ -110,6 +110,8 @@ clicc_dev    /initdev.sh                      Up       0.0.0.0:443->8888/tcp
 psql -h $(docker-machine ip clicc) -p 5432 -d clicc -U clicc
 ```
 
+This brings you to an interactive SQL session with the postGIS database container. You can test some queries or create a new datastore. To leave this session and return to the shell simply type in: "\q"
+
 5. Open interactive ipython notebook session hosted on the clicc_dev_1 container (password:clicc)
 
 ```
