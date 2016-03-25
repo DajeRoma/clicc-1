@@ -116,7 +116,6 @@ This command should show you the ip address that was dynamically generated for t
 
 ```
 192.168.99.100
-
 ```
 
 6. Open your browser (preferrably chrome) and type the following url =>  https://[YOUR VM'S IP]
