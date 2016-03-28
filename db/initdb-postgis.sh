@@ -19,7 +19,5 @@ for DB in template_postgis "$POSTGRES_DB"; do
 		CREATE EXTENSION postgis_topology;
 		CREATE EXTENSION fuzzystrmatch;
 		CREATE EXTENSION postgis_tiger_geocoder;
-		POSTGIS_GDAL_ENABLED_DRIVERS=ENABLE_ALL;
-		POSTGIS_ENABLE_OUTDB_RASTERS=1;
 EOSQL
 done
