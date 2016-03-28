@@ -6,7 +6,8 @@ WORKDIR /notebooks
 
 RUN apt-get update -qq && \
 apt-get install -yq --no-install-recommends \
-python-psycopg2 && \
+python-psycopg2 \
+python-gdal && \
 apt-get clean && \
 rm -rf /var/lib/apt/lists/*
 
