@@ -2,7 +2,7 @@
 
 Linux containers are not new. They have been around for a long time. However, nearly all of the tools that are currently available for creating, managing, discovering, and running linux containers are new. And it is the relatively recent availability of this support tooling that has made linux containers really take off in terms of cloud based application deployment. 
 
-Whether you know it or not, whether you like it or not, whether you care or not: you all part of a team that is building a complex, distributed web application. And, as such, you are going to have to learn more about how the modern web actually operates than the average Environmental Scientist in order to be successful with your work (even if you think that your personal role within the project has no outward facing components).
+You all part of a team that is building a complex, distributed web application. And, as such, you are going to have to learn more about how the modern web actually operates than the average Environmental Scientist in order to be successful with your work (even if you think that your personal role within the project has no outward facing components).
 
 ![alt text](https://github.com/ericdfournier/clicc/blob/master/src/common/images/vm-vs-docker.png "Containers vs. Virtual Machines")
 
