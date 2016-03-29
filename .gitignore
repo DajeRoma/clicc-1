@@ -1,5 +1,5 @@
 # Certificates #
-###################
+######################
 *.pem
 
 # OS generated files #
@@ -11,3 +11,7 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+* Data Directory #
+######################
+data/

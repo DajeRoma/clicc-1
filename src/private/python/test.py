@@ -19,13 +19,14 @@ query = """
        INTO counts 
        FROM nlcd_area, catchment 
        GROUP BY huc; 
-    SELECT huc, value, count, (SUM(count) OVER (PARTITION BY huc)) 
-        AS sum 
+    SELECT huc, value, count, 
+    (SUM(count) OVER (PARTITION BY huc)) AS sum 
         INTO counts_sum 
         FROM counts;
-    SELECT huc, value, (CAST(count AS float) / CAST(sum AS float)) 
-        AS fraction 
-        FROM counts_sum;
+    SELECT huc, value, count, 
+    (@ST_ScaleX(rast) * @ST_ScaleY(rast) * (CAST(count AS float))) AS area, 
+    (CAST(count AS float) / CAST(sum AS float)) AS fraction
+        FROM nlcd_area, counts_sum;
 """
 
 # Execute query and write to pandas data frame
