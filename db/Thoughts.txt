@@ -1,0 +1,11 @@
+The spatial distribution of the marginal value of each new unit of distributed energy generation supply is highly non-uniform. In fact, it is entirely conceivable that such values might become negative in those specific geographic regions where the latent capacity of the grid interconnects are already constrained due to high concentrations demand, lagging infrastructure investment, or other intrinsic challenges related to the physical geography of the landscape.
+
+As the situation currently stands, where it makes sense for people to adopt things like solar and wind, does not neccessarily align, geographically, with where it makes sense for the grid to adopt new distributed supply. This is down to a long term grid maintenance and future investment strategy which was developed under the, perhaps now questionable assumption, that large point source generation technologies would persist as the dominant source of energy supply on a the long term time horizon.
+
+The key would be bulk access to the integrated capacity analysis spatial dataset.
+
+This could be interpreted as a map of "the marginal value of distributed energy resource supply.""
+
+A corresponding map of say "rooftop solar production capacity potential" would function as a corresponding map of "the marginal cost of distributed energy resource supply."
+
+Overlaying the value of the distributed energy supply with it's cost could provide an interesting window in optimal joint DER procurement & Grid re-investment strategies.

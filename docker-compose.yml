@@ -16,7 +16,7 @@ services:
     container_name: clicc_data
     volumes:
       - /var/lib/postgresql/
-    command: echo 'Created Data Container for PostGIS'
+    command: echo 'Data Container for PostGIS'
   dev:
     restart: always
     build: dev/.
