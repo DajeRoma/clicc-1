@@ -1,0 +1,9 @@
+-- Interactive terminal connection to the docker hosted clicc database [shell]
+
+$ psql -h $(docker-machine ip clicc) -p 5432 -d clicc -U clicc
+
+-- View all currently active queries [sql]
+
+FROM pg_stat_activity                                                                                          WHERE query != '<IDLE>' 
+AND query NOT ILIKE '%pg_stat_activity%'                                               
+ORDER BY query_start desc;
