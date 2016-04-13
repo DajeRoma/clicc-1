@@ -70,70 +70,70 @@ Install git command line tools: https://git-scm.com/download/mac
 
 Clone this repo and cd into it on your local machine
 
-1. Create local virtual machine named clicc
+1.	Create local virtual machine named clicc
 
-```
-docker-machine create -d virtualbox clicc
-```
+	```
+	docker-machine create -d virtualbox clicc
+	```
 
-2. Associated docker daemon with new virtual machine ip
+2.	Associated docker daemon with new virtual machine ip
 
-```
-docker-machine env clicc; eval $(docker-machine env clicc)
-```
+	```
+	docker-machine env clicc; eval $(docker-machine env clicc)
+	```
 
-3. Use docker-compose to build container services
+3.	Use docker-compose to build container services
 
-```
-docker-compose build
-```
+	```
+	docker-compose build
+	```
 
-Remember, this command will only work if your current working directory has the "docker-compose.yaml" file in it.
+	Remember, this command will only work if your current working directory has the "docker-compose.yaml" file in it.
 
-4. Start service group
+4.	Start service group
 
-```
-docker-compose up -d
-```
+	```
+	docker-compose up -d
+	```
 
 5. Check to see that the containers are active
 
-```
-docker-compose ps
-```
+	```
+	docker-compose ps
+	```
 
-This command should show you some output like the following:
+	This command should show you some output like the following:
 
-```
-   Name                 Command               State            Ports
------------------------------------------------------------------------------
-clicc_data   /bin/true                        Exit 0
-clicc_db     /docker-entrypoint.sh postgres   Up       0.0.0.0:5432->5432/tcp
-clicc_dev    /initdev.sh                      Up       0.0.0.0:443->8888/tcp
-```
+	```
+	   Name                 Command               State            Ports
+	-----------------------------------------------------------------------------
+	   clicc_data   /bin/true                        Exit 0
+	   clicc_db     /docker-entrypoint.sh postgres   Up       0.0.0.0:5432->5432/tcp
+	   clicc_dev    /initdev.sh                      Up       0.0.0.0:443->8888/tcp
+	```
 
 6. Open interactive database session within the clicc_db_1 container hosted database (user:clicc, password: clicc)
+	   
+	```
+	psql -h $(docker-machine ip clicc) -p 5432 -d clicc -U clicc
+	```
 
-```
-psql -h $(docker-machine ip clicc) -p 5432 -d clicc -U clicc
-```
-
-This brings you to an interactive SQL session with the postGIS database container. You can test some queries or create a new datastore. To leave this session and return to the shell simply type in: "\q"
+	This brings you to an interactive SQL session with the postGIS database container. You can test some queries or create a new datastore. To leave this session and return to the shell simply type in: "\q"
 
 7. Open interactive ipython notebook session hosted on the clicc_dev_1 container (password:clicc)
 
-```
-docker-machine ip clicc
-```
+	```
+	docker-machine ip clicc
+	```
 
-This command should show you the ip address that was dynamically generated for the clicc VM as in the following:
+	This command should show you the ip address that was dynamically generated for the clicc VM as in the following:
 
-```
-192.168.99.100
-```
+	```
+	192.168.99.100
+	```
 
 8. Open your browser (preferrably chrome) and type the following url =>  https://[YOUR VM'S IP]
 
-Ignore any warnings that you may get from the browser about certificates and security. Our docker container running the ipython notebook server is not using a valid signed certificate. Those cost money that we don't have. Plus it is not something that we need for this development environment.
+	Ignore any warnings that you may get from the browser about certificates and security. Our docker container running the ipython notebook server is not using a valid signed certificate. Those cost money that we don't have. Plus it is not something that we need for this development environment.
 
-Input the password for the ipython notebook server (clicc) and voila!
+	Input the password for the ipython notebook server (clicc) and voila!
